@@ -1,0 +1,24 @@
+{
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "edad": 25,
+    "direccion": {
+        "calle": "Av. Libertador",
+        "numero": 123
+    },
+    "intereses": {
+        "programacion": [
+            "html",
+            "css",
+            "js",
+            "php"
+        ],
+        "musica": [
+            "pop",
+            "rock"
+        ],
+        "viajes": [
+            "Europa"
+        ]
+    }
+}
