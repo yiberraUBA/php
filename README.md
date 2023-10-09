@@ -1,7 +1,13 @@
-### README
+# README
 
 ## Titulo
 
-# Subtitulo
+### Subtitulo
 
 Texto de información
+
+```
+<p>
+    Prueba code
+</p>
+```
