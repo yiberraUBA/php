@@ -1,10 +1,33 @@
 <?php
 
+
+interface Producto {
+
+    public function vender();
+    public function getStock();
+
+}
+
+class Gaseosa implements Producto {
+
+    public function vender() {
+
+    }
+
+    public function getStock() {
+
+    }
+
+}
+
+
 abstract class Vehiculo {
 
     protected $color = 'azul';
     protected $encendido = false;
+    
     abstract function arrancar();
+    
     public function parar() {
         $this->encendido = false;
     }
@@ -17,7 +40,14 @@ class Auto extends Vehiculo {
 
     public function arrancar()
     {
-        $this->encendido = true;
+        $this->encendido = false;
+
+        if (!$this->encendido)
+        {
+            $exception = new Exception('El auto no encendió');
+            throw $exception;
+        }
+
         echo 'Arrancó auto';
     }
 
@@ -93,12 +123,12 @@ class Persona {
         echo "Hola, mi nombre es ". $this->nombre . ".";
     }
 
-    public function obtenerEdad(){
+    public function getEdad(){
         return $this->edad;
     }
 
     public function caminar(){
-
+    
     }
 
     public function hablar(){
@@ -115,7 +145,7 @@ class Persona {
 
 }
 
-// $persona = new Persona;
+$persona = new Persona;
 
 // $persona->nombre = "Carlos";
 // $persona->edad = 25;
@@ -132,16 +162,20 @@ class Persona {
 
 
 
-// $nuevo_auto1 = new Auto;
-// $nuevo_auto2 = new Auto;
-// $nuevo_auto3 = new Auto;
+$nuevo_auto1 = new Auto;
+$nuevo_auto2 = new Auto;
+$nuevo_auto3 = new Auto;
 
-// $nuevo_auto1->arrancar();
-// print_r($nuevo_auto1);
+try {
+    $nuevo_auto1->arrancar();
+} catch(Exception $exception){
+    echo "Se produjo un error: " . $exception->getMessage() . "\n";
+}
 
-// $nuevo_auto1->estaEncendido();
-// $nuevo_auto2->estaEncendido();
-// $nuevo_auto3->estaEncendido();
+
+$nuevo_auto1->estaEncendido();
+$nuevo_auto2->estaEncendido();
+$nuevo_auto3->estaEncendido();
 
 // $persona = new Persona;
 
@@ -163,14 +197,14 @@ $params = ['color' => 'rojo', 'encendido' => false, 'luces' => false];
 
 $avion = new Avion($params);
 
-$avion->arrancar();
-echo $avion->getColor(). "\n";
-$avion->prenderLuces();
-echo $avion->getLuces(). "\n";
-$avion->setColor('azul');
-echo $avion->getColor(). "\n";
+// $avion->arrancar();
+// echo $avion->getColor(). "\n";
+// $avion->prenderLuces();
+// echo $avion->getLuces(). "\n";
+// $avion->setColor('azul');
+// echo $avion->getColor(). "\n";
 
-print_r($avion);
+// print_r($avion);
 
 // $auto = new Auto;
 
